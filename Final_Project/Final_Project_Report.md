@@ -32,6 +32,7 @@ The wealth of each agent is showed in **Chart 0**. The changes of total wealth i
 ![alt text](agentsWealth.png)
 
 **Chart 1: Total Wealth**
+
 ![alt text](totalWealth.png)
 
 **Chart 2: Wealth of Species**
