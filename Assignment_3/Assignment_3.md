@@ -1,0 +1,71 @@
+# Task 1: N Queen Problem
+- The aim of this task is to understand how agents communicare and cooperate to achieve their goal using the N Queens problem.
+- Rules of the game:
+    - Create a N*N size chessboard, placing N queens on it.
+    - No two queens can share the same row.
+    - No two queens can share the same column.
+    - No two queens can share the same diagonal line.
+- Provide multiple arrangements for your queens.
+- Your solution must work for N=[4, 5, ..., 19, 20].
+- Setup:
+    - Each queen is an agent.
+    - **Queens communicate with messages (using ask is not acceptable).**
+    - **Queens can only talk to their predecessor and their successor.**
+    - If a queen has no available position, she must let her predecessor know and ask her to reposition her.
+    - If the predecessor has no available positions left, she must message her predecessor and so on...
+    - Stop when all queens are correctly positioned.
+
+# Task 2: Positioning Speakers at Main Stage
+- There are multiple stages in the festival example.
+- Each stage is hosting an act that last for a fixed time.
+    - Some stages have better light shows.
+    - Some others have better visuals.
+    - Some of them have a better sound system.
+- The guest knows at any given time where all stages are.
+- Considering the details for each stage, the guest picks one based on their preferences.
+    - If they like the music style, lightshow, sound quality, etc.
+- Each time an agent selects a stage to go. They make this decision based on some sort of an **utility function**. For example:
+    - Let us say the user preference is as follows: **LightShow = 0.1, Speaker = 0.3, MusicStyle = 0.2**.
+    - The details of stage 1 is: **LightShow = 0.4, Speaker = 0.8, MusicStyle = 0.9**.
+    - The details of stage 2 is: **LightShow = 0.2, Speaker = 0.1, MusicStyle = 0.4**.
+    - The utility value for this user and stage 1 is: **0.1 * 0.4 + 0.3 * 0.8 + 0.2 * 0.9 = 0.46**.
+    - The utility value for this user and stage 2 is: **0.1 * 0.2 + 0.3 * 0.1 + 0.2 * 0.4 = 0.13**.
+    - Since the user always select the highest utility value, then they pick stage 1.
+- Setup:
+    - Create some new agents for stages that the guests can travel to.
+    - Give each stage some attributes with different values to model the details.
+    - Guests communicate with stages via FIPA to know the attribute value.
+    - Guests calculate their utility for each stage.
+    - The stage with the highest utility is picked!
+
+# Goals
+- Hands on experience with agents working togather to find a solution to a problem.
+- Agent utility function to control behavior.
+- More parameters used in FIPA service.
+
+# Challenge 1: Global Utility Function
+- The task is introducing a new attribute, **crowd mass**, into the decision-making process of guests.
+- This attribute determines the guests' preferences regarding the size of the crowd they want to be a part of.
+- Define the "**Crowd Mass**" Attribute:
+    - Some guests prefer being part of a large crowd.
+    - Others prefer quiet environments with sufficient space around them.
+    - Make this attribute a key factor in the decision-making process of the guests.
+- Decision-Making Process:
+    - Each guest initially selects a stage based on their preferences, including the crowd mass.
+    - After all guests have chosen their acts, they communicate with each other to share their decisions.
+    - To simplify coordination:
+        - Assign one agent as a **leader** that tells everyone where to go for an optimal solution.
+- Dynamic Adjustment Based on Crowd Mass:
+    - If a guest prefers less crow but notices that most guests are choosing the same stage, they may decide to switch to another stage.
+    - Conversely, if a guest prefers a large crowd but ends up at a stage with only a few guests, they should switch acts to maximize both their utility and that of others.
+    - The goal is to adjust choices dynamically to maximize the overall utility of all guests.
+- Global Utility Optimization:
+    - Guests must collaborate to maximize the global utility by:
+        - Sacrificing some of their own utility where necessary.
+        - Ensuring that the combined satisfaction (utility) of all guests is maximized.
+    - Use the FIPA protocol for communication between guests.
+- Deliverables:
+    - Show the initial choice of guests and their corresponding global utility at that time.
+    - Demonstrate how guests adjust their choices to increase global utility over time.
+    - Indicate when the maximum global utility has been reached.
+        - When max global utility has been reached, the agents can enjoy their show!
