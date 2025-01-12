@@ -23,12 +23,14 @@ Guards will process the reports and conduct to catch bad and fine them. They wil
 The map of relationships and interactions are as below in **Fig 0**.
 
 **Fig 0: Relationships and Interactions**
+
 ![alt text](interacts.png)
 
 # 3. Results and Conclusion
 The wealth of each agent is showed in **Chart 0**. The changes of total wealth in the simulation are in **Chart 1**. The wealth of each specie is compared in the pie chart in **Chart 2**.
 
 **Chart 0: Wealth of Agents**
+
 ![alt text](agentsWealth.png)
 
 **Chart 1: Total Wealth**
@@ -36,11 +38,13 @@ The wealth of each agent is showed in **Chart 0**. The changes of total wealth i
 ![alt text](totalWealth.png)
 
 **Chart 2: Wealth of Species**
+
 ![alt text](speciesWealth.png)
 
 Except the results above. An interesting conclusion is occurred. While increasing the number of guards (30), the profit thieves can gain will decrease, which indicates a better security. Details are compared in the **Table 0**.
 
 **Table 0: Wealth of Thief with Different Number of Guards**
+
 |Number of Guards|Wealth of Thief Speice|Percentage|
 |:---:|:---:|:---:|
 |10|515.682|18%|
